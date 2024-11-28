@@ -1,0 +1,7 @@
+# Project exclude paths
+/package-tool/target/
+/sample-api/target/
+/sample-dao/target/
+/sample-model/target/
+/sample-service/target/
+/target/
