@@ -22,9 +22,10 @@ public class PackageDependenciesTool {
         .map(List::of)
         .ifPresent(projectRootPackages::addAll);
 
-    String packagesToExclude = "com.smousseur.packages.tool";
-    JavaClasses classes = new ClassFileImporter().importPath(".");
+    String importPath = Optional.ofNullable(params.get("path")).orElse(".");
+    JavaClasses classes = new ClassFileImporter().importPath(importPath);
     Map<String, Set<String>> dependencies = new HashMap<>();
+    String packagesToExclude = "com.smousseur.packages.tool";
     classes.forEach(
         classz -> {
           String packageName = classz.getPackageName();
